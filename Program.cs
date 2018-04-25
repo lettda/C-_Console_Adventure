@@ -12,12 +12,11 @@ namespace _350_final_project
             string playerName;
             string playerClass;
 
-            Story newStory = new Story();
-
+            Story newStory = new Story(); //instantiate new class to access class member methods
 
             do
             {
-                WriteLine("What do you want your character's name to be?");
+                WriteLine("What do you want your character's name to be?"); //Have player input their name and save for further use
                 playerName = ReadLine();
 
             } while (string.IsNullOrEmpty(playerName)); //while playerName contains no value
@@ -25,9 +24,9 @@ namespace _350_final_project
             WriteLine("Welcome {0}, to your great Adventure", playerName);
 
             WriteLine("Choose your class by entering its name: \n You may choose the noble Warrior, the dastardly Theif, or the honorable Gunner");
-            playerClass = ReadLine();
+            playerClass = ReadLine(); //Have player input their class and save for further use
 
-            newStory.ChooseClass(playerClass);
+            newStory.ChooseClass(playerClass); 
 
 
             newStory.Beginning(playerName, playerClass);

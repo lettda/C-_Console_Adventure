@@ -55,6 +55,7 @@ namespace _350_final_project
         }
 
         public void Beginning(string playerName, string playerClass)
+
         {
 
             WriteLine("Valiant {0}, It is time to begin your journey", playerName);

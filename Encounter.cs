@@ -63,7 +63,7 @@ namespace _350_final_project
 
                 else
                 {
-                    Thread.Sleep(2000);
+                    Thread.Sleep(2000); //Pause for two seconds
                     WriteLine("\n {0} missed!", monster.Name);
                     ReadKey();
                 }
@@ -73,6 +73,7 @@ namespace _350_final_project
                     WriteLine("Your attacked missed!");
                     ReadKey();
                 } else
+                    
                 {
                     WriteLine("You {0}, {1} takes {2} damage", action, monster.Name, choosenClass.playerDamage);
 
