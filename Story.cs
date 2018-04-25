@@ -4,9 +4,9 @@ namespace _350_final_project
 {
     public class Story
     {
-        static Player choosenClass;
+        public Player choosenClass;
 
-        public static Player ChooseClass(string choice)
+        public Player ChooseClass(string choice)
         {
             switch (choice.ToLower())
             {
@@ -54,7 +54,7 @@ namespace _350_final_project
             }
         }
 
-        public static void Beginning(string playerName, string playerClass)
+        public void Beginning(string playerName, string playerClass)
         {
 
             WriteLine("Valiant {0}, It is time to begin your journey", playerName);

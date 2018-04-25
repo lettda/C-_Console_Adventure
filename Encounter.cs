@@ -5,7 +5,7 @@ namespace _350_final_project
 {
     public class Encounter
     {
-        private static int encounterCounter = Randomize.NumberGenerator(1, 10) % 2;
+        static int encounterCounter = Randomize.NumberGenerator(1, 10) % 2;
 
         //public static void GenerateEncounter (string playerClass,Player classChoosen)
         //{
@@ -44,9 +44,10 @@ namespace _350_final_project
 
         }
 
-        private static void EncounterBattle(Monster monster, Player choosenClass, string action)
+        static void EncounterBattle(Monster monster, Player choosenClass, string action)
         {
-            while (monster.CurrentHp > 0 || choosenClass.currentPlayerHealth > 0)
+            while (monster.CurrentHp > monster.MonsterDamageTaken(choosenClass.playerDamage) || 
+                   choosenClass.CurrentPlayerHealth > choosenClass.DamageTaken(monster.MaxDamage)) //while the monster's health or players health is greater than the amount of damage taken continue the battle
             {
                 int monsterHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;
 
@@ -56,13 +57,13 @@ namespace _350_final_project
                 {
                     WriteLine("{0}'s attack hits, you take {1} damage", monster.Name, monster.MaxDamage);
 
-                    WriteLine("Your current health is {0}", choosenClass.DamageTaken(monster.MaxDamage));
+                    WriteLine("Your health is now {0}", choosenClass.DamageTaken(monster.MaxDamage));
                     ReadKey();
                 }
 
                 else
                 {
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     WriteLine("\n {0} missed!", monster.Name);
                     ReadKey();
                 }

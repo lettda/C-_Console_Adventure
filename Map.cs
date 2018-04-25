@@ -28,7 +28,7 @@ namespace _350_final_project
             CreateMonsters();
         }
 
-        private static void CreateMonsters()
+        static void CreateMonsters()
         {
             Monster goblin = new Monster ("Goblin","throws club",5,5,1,2);
             Monster fireElemental = new Monster("Fire Elemental", "hurls fire ball", 20, 20, 15, 10);
@@ -46,7 +46,7 @@ namespace _350_final_project
 
         }
 
-        private static void CreateLocations()
+        static void CreateLocations()
         {
             Location forest = new Location("Everwood Forest", "You stepped into everwood forest");
             Location cavern = new Location( "Pyre Stone Caverns", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");

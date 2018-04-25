@@ -12,6 +12,8 @@ namespace _350_final_project
             string playerName;
             string playerClass;
 
+            Story newStory = new Story();
+
 
             do
             {
@@ -25,10 +27,10 @@ namespace _350_final_project
             WriteLine("Choose your class by entering its name: \n You may choose the noble Warrior, the dastardly Theif, or the honorable Gunner");
             playerClass = ReadLine();
 
-            Story.ChooseClass(playerClass);
+            newStory.ChooseClass(playerClass);
 
 
-            Story.Beginning(playerName, playerClass);
+            newStory.Beginning(playerName, playerClass);
         }
 
 
