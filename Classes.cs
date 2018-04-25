@@ -4,12 +4,12 @@ namespace _350_final_project
     public class Player
     {
         internal int maxPlayerHealth;
-        internal int currentPlayerHealth;
+        public int currentPlayerHealth;
         internal int playerDamage;
         internal int playerDef;
         internal int playerAgility;
         internal int playerStrength;
-        internal int playerExperience;
+        public int playerExperience;
 
 
         public Player()
@@ -43,7 +43,7 @@ namespace _350_final_project
         //}
         public int DamageTaken(int monsterDMG)
         {
-            CurrentPlayerHealth = CurrentPlayerHealth - monsterDMG;
+            CurrentPlayerHealth = CurrentPlayerHealth - monsterDMG; //calculate the damage the player takes and overwrite their current HP value
             return CurrentPlayerHealth;
         }
     }

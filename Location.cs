@@ -9,8 +9,8 @@ namespace _350_final_project
             Description = locationDescription;
         }
 
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } //location name
+        public string Description { get; set; } //text displayed when player comes to the lcoation
 
 		public override string ToString()
 		{

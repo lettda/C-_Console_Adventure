@@ -9,8 +9,8 @@ namespace _350_final_project
 {
     public class Map
     {
-        public static readonly List<Location> Locations = new List<Location>();
-        public static readonly List<Monster> Monsters = new List<Monster>();
+        public static readonly List<Location> Locations = new List<Location>(); //create list to hold locations to be used
+        public static readonly List<Monster> Monsters = new List<Monster>();    //create list to hold the types of monsters that will appear
 
 
         //public static int Location_ID_Forest = 1;
@@ -28,7 +28,7 @@ namespace _350_final_project
             CreateMonsters();
         }
 
-        static void CreateMonsters()
+        static void CreateMonsters() //instatiate new monster type and add it to the list
         {
             Monster goblin = new Monster ("Goblin","throws club",5,5,1,2);
             Monster fireElemental = new Monster("Fire Elemental", "hurls fire ball", 20, 20, 15, 10);
@@ -46,7 +46,7 @@ namespace _350_final_project
 
         }
 
-        static void CreateLocations()
+        static void CreateLocations() //instantiate new location type and add it to the list
         {
             Location forest = new Location("Everwood Forest", "You stepped into everwood forest");
             Location cavern = new Location( "Pyre Stone Caverns", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");

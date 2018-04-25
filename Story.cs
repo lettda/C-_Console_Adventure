@@ -4,9 +4,9 @@ namespace _350_final_project
 {
     public class Story
     {
-        public Player choosenClass;
+        public Player choosenClass; //player's choosen class
 
-        public Player ChooseClass(string choice)
+        public Player ChooseClass(string choice)    //to run and allow player to pick from 3 different classes by intantiate an instance depending on their answer
         {
             switch (choice.ToLower())
             {
@@ -64,7 +64,7 @@ namespace _350_final_project
                       "Will you venture north, east or west?");
             string directionDecision = ReadLine();
 
-            WriteLine("You head {0}, steadily maing your way toward {1}", directionDecision, Randomize.RandomizeLocation().Name);
+            WriteLine("You head {0}, steadily maing your way toward {1}", directionDecision, Randomize.RandomizeLocation().Name);   //pick a random location
             WriteLine("After several long miles you come across a fork in the road with no signs pointing you to your destination. \n " +
                       "Your map is useless and due to your illpreparaedness supplies are running short. Wich direction will you go? \n" +
                       "North, East, or West?:");

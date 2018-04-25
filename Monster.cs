@@ -3,9 +3,6 @@ namespace _350_final_project
 {
     public class Monster
     {
-
-
-
         public Monster (string monsterName, string atk, int hp, int mxHp, int mxDmg, int exp)
         {
             Name = monsterName;
@@ -29,7 +26,7 @@ namespace _350_final_project
             return "Monster Health: " + CurrentHp;
 		}
 
-		public int MonsterDamageTaken(int playerDMG)
+		public int MonsterDamageTaken(int playerDMG)    //calculate the damage the monster takes and overwrite its current HP value
         {
             CurrentHp = CurrentHp - playerDMG;
             return CurrentHp;

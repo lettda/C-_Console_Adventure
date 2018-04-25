@@ -9,7 +9,7 @@ namespace _350_final_project
         //public static Location choosenLocation;
 
 
-        public static Monster RandomizeMonster()
+        public static Monster RandomizeMonster()    //using random counter chose a random monster from the list of monsters
         {
             
             int monsterCounter = rnd.Next(Map.Monsters.Count);
@@ -17,14 +17,14 @@ namespace _350_final_project
 
             return choosenMonster;
         }
-        public static Location RandomizeLocation()
+        public static Location RandomizeLocation()  //using random counter chose a random location from the list of locations
         {
             int locationCounter = rnd.Next(Map.Locations.Count);
             var choosenLocation = Map.Locations[locationCounter];
 
             return choosenLocation;
         }
-        public static int NumberGenerator(int min,int max)
+        public static int NumberGenerator(int min,int max)  //generate a random number value
         {
             return rnd.Next(min, max);
         }
