@@ -3,7 +3,6 @@ namespace _350_final_project
 {
     public class Player
     {
-        internal int playerHealth;
         internal int maxPlayerHealth;
         internal int currentPlayerHealth;
         internal int playerDef;
@@ -36,7 +35,7 @@ namespace _350_final_project
 
         public override string ToString()
         {
-            return "Health: " + playerHealth +
+            return "Health: " + maxPlayerHealth +
                 "\nAgility: " + playerAgility +
                 "\nFDefense: " + playerDef +
                 "\nStrength: " + playerStrength;

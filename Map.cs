@@ -13,24 +13,13 @@ namespace _350_final_project
         public static readonly List<Monster> Monsters = new List<Monster>();
 
 
-
-        public static int Goblin_ID = 1;
-        public static int Elemental_ID = 2;
-        public static int GiantCrow_ID = 3;
-        public static int PokemonMaster_ID = 4;
-        public static int Grunt_ID = 5;
-        public static int Dragon_ID = 6;
-
-
-
-
-        public static int Location_ID_Forest = 1;
-        public static int Location_ID_Cavern = 2;
-        public static int Location_ID_Lake = 3;
-        public static int Location_ID_Tower = 4;
-        public static int Location_ID_Mountain = 5;
-        public static int Location_ID_Dungeon = 6;
-        public static int Location_ID_PalletTown = 7;
+        //public static int Location_ID_Forest = 1;
+        //public static int Location_ID_Cavern = 2;
+        //public static int Location_ID_Lake = 3;
+        //public static int Location_ID_Tower = 4;
+        //public static int Location_ID_Mountain = 5;
+        //public static int Location_ID_Dungeon = 6;
+        //public static int Location_ID_PalletTown = 7;
 
 
         static Map()
@@ -41,12 +30,12 @@ namespace _350_final_project
 
         private static void CreateMonsters()
         {
-            Monster goblin = new Monster (Goblin_ID, "Goblin",5,5,1,2);
-            Monster fireElemental = new Monster(Elemental_ID, "Fire Elemental", 20, 20, 15, 10);
-            Monster giantCrow = new Monster(GiantCrow_ID, "Giant Crow", 8, 8, 3, 5);
-            Monster grunt = new Monster(Grunt_ID, "Grunt", 6, 6, 1, 7);
-            Monster pokemonMaster = new Monster(PokemonMaster_ID, "Pokemon Master", 15, 15, 9, 25);
-            Monster dragon = new Monster(Dragon_ID, "Dragon", 50, 50, 25, 100);
+            Monster goblin = new Monster ("Goblin","throws club",5,5,1,2);
+            Monster fireElemental = new Monster("Fire Elemental", "hurls fire ball", 20, 20, 15, 10);
+            Monster giantCrow = new Monster("Giant Crow", "wing attack", 8, 8, 3, 5);
+            Monster grunt = new Monster("Grunt","fires its pistol", 6, 6, 1, 7);
+            Monster pokemonMaster = new Monster("Pokemon Master","throws pokeball", 15, 15, 9, 25);
+            Monster dragon = new Monster("Dragon","conjures a tornado of flames", 50, 50, 25, 100);
 
             Monsters.Add(goblin);
             Monsters.Add(fireElemental);
@@ -59,13 +48,13 @@ namespace _350_final_project
 
         private static void CreateLocations()
         {
-            Location forest = new Location(Location_ID_Forest,"Everwood Forest", "You stepped into everwood forest");
-            Location cavern = new Location(Location_ID_Cavern, "Pyre Stone Caverns", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
-            Location lake = new Location(Location_ID_Lake, "Maiden's Lake", "You stumble the Maiden's lake, remember to pay homage to the lady of the lake");
-            Location tower = new Location(Location_ID_Tower, "Tower", "Before you lies the dark tower");
-            Location mountain = new Location(Location_ID_Mountain, "Mountain", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
-            Location dungeon = new Location(Location_ID_Dungeon, "Dungeon", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
-            Location palletTown = new Location(Location_ID_PalletTown, "Pallet Town", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
+            Location forest = new Location("Everwood Forest", "You stepped into everwood forest");
+            Location cavern = new Location( "Pyre Stone Caverns", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
+            Location lake = new Location("Maiden's Lake", "You stumble the Maiden's lake, remember to pay homage to the lady of the lake");
+            Location tower = new Location("Tower", "Before you lies the dark tower");
+            Location mountain = new Location("Mountain", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
+            Location dungeon = new Location("Dungeon", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
+            Location palletTown = new Location("Pallet Town", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
 
             Locations.Add(forest);
             Locations.Add(cavern);

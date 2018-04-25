@@ -24,5 +24,9 @@ namespace _350_final_project
 
             return choosenLocation;
         }
+        public static int NumberGenerator(int min,int max)
+        {
+            return rnd.Next(min, max);
+        }
     }
 }

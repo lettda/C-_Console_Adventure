@@ -6,10 +6,10 @@ namespace _350_final_project
 
 
 
-        public Monster (int id, string monsterName, int hp, int mxHp, int mxDmg, int exp)
+        public Monster (string monsterName, string atk, int hp, int mxHp, int mxDmg, int exp)
         {
-            ID = id;
             Name = monsterName;
+            Attack = atk;
             CurrentHp = hp;
             MaxHp = mxHp;
             MaxDamage = mxDmg;
@@ -17,12 +17,12 @@ namespace _350_final_project
 
         }
 
-        public static int ID { get; set; }
-        public static string Name { get; set; }
-        public static int CurrentHp { get; set; }
-        public static int MaxHp { get; set; }
-        public static int MaxDamage { get; set; }
-        public static int ExpReward { get; set; }
+        public string Name { get; set; }
+        public string Attack { get; set; }
+        public int CurrentHp { get; set; }
+        public int MaxHp { get; set; }
+        public int MaxDamage { get; set; }
+        public int ExpReward { get; set; }
 
     }
 }

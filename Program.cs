@@ -11,6 +11,7 @@ namespace _350_final_project
         {
             string playerName;
             string playerClass;
+            Player choosenClass;
 
             do
             {
@@ -27,9 +28,9 @@ namespace _350_final_project
             switch (playerClass.ToLower())
             {
                 case "warrior":
-                    Player warrior = new Player()
+                    choosenClass = new Player()
                     {
-                        playerHealth = 150,
+                        maxPlayerHealth = 150,
                         currentPlayerHealth = 150,
                         playerDef = 120,
                         playerStrength = 95,
@@ -39,7 +40,7 @@ namespace _350_final_project
                     WriteLine("You have choosen the path of the Warrior. Live by the sword. Die by the sword! \n");
                     break;
                 case "theif":
-                    Player theif = new Player()
+                    choosenClass = new Player()
                     {
                         maxPlayerHealth = 85,
                         currentPlayerHealth = 85,
@@ -51,9 +52,9 @@ namespace _350_final_project
                     WriteLine("You have choosen to lurk in the shadows as a theif \n");
                     break;
                 case "gunner":
-                    Player gunner = new Player()
+                    choosenClass = new Player()
                     {
-                        playerHealth = 70,
+                        maxPlayerHealth = 70,
                         currentPlayerHealth = 70,
                         playerDef = 75,
                         playerStrength = 60,
@@ -65,15 +66,12 @@ namespace _350_final_project
                 default:
                     break;
             }
-
-            WriteLine("Valiant {0}, It is time to begin your journey", playerClass);
-            WriteLine("We begin in the hall of heroes, the queen has tasked you with destorying the dragon \n" +
-                      " that resides at the tower on the edge of the kingdom. To bein your journey pick a direction in which to go. \n" +
-                      "Will you venture north, east or west?");
-            string directionDecision = ReadLine();
-
-            WriteLine("You head toward the {0}, facing you is the {1}", directionDecision, Randomize.RandomizeLocation().Name);
-                                
+            Story.Beginning(playerName, playerClass, choosenClass.currentPlayerHealth);
         }
+
+        //public static int CalculateDamageDone(playerHP, monsterDMG)                   //method to calculate the damage a player takes in battle
+        //{
+        //    playerHP.currentPlayerHealth = playerHP.CurrentPlayerHealth - monsterDMG;
+        //}
     }
 }

@@ -7,6 +7,5 @@
 
   <ItemGroup>
     <Compile Remove="Warrior.cs" />
-    <Compile Remove="Story.cs" />
   </ItemGroup>
 </Project>
