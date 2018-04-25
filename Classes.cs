@@ -5,20 +5,23 @@ namespace _350_final_project
     {
         internal int maxPlayerHealth;
         internal int currentPlayerHealth;
+        internal int playerDamage;
         internal int playerDef;
         internal int playerAgility;
         internal int playerStrength;
         internal int playerExperience;
+
 
         public Player()
         {
 
         }
 
-        public Player(int maxHp, int currentHp, int def, int agil, int str, int exp)
+        public Player(int maxHp, int currentHp, int dmg, int def, int agil, int str, int exp)
         {
             maxPlayerHealth = maxHp;
             currentPlayerHealth = currentHp;
+            playerDamage = dmg;
             playerDef = def;
             playerAgility = agil;
             playerStrength = str;
@@ -26,20 +29,22 @@ namespace _350_final_project
         }
 
 
-        private int MaxPlayerHealth { get => maxPlayerHealth; set => maxPlayerHealth = value; }
-        private int CurrentPlayerHealth { get => currentPlayerHealth; set => currentPlayerHealth = value; }
-        private int PlayerDef { get => playerDef; set => playerDef = value; }
-        private int PlayerAgility { get => playerAgility; set => playerAgility = value; }
-        private int PlayerStrength { get => playerStrength; set => playerStrength = value; }
-        private int PlayerExperience { get => playerExperience; set => playerExperience = value; }
+        private int MaxPlayerHealth { get => maxPlayerHealth;}
+        private int CurrentPlayerHealth { get => currentPlayerHealth; set => currentPlayerHealth = value;}
+        private int PlayerDamage { get => playerDamage;}
+        private int PlayerDef { get => playerDef; }
+        private int PlayerAgility { get => playerAgility; }
+        private int PlayerStrength { get => playerStrength;}
+        private int PlayerExperience { get => playerExperience;}
 
         public override string ToString()
         {
-            return "Health: " + maxPlayerHealth +
-                "\nAgility: " + playerAgility +
-                "\nFDefense: " + playerDef +
-                "\nStrength: " + playerStrength;
-
+            return "Health: " + currentPlayerHealth;
+        }
+        public int DamageTaken(int monsterDMG)
+        {
+            currentPlayerHealth = currentPlayerHealth - monsterDMG;
+            return currentPlayerHealth;
         }
     }
 }
