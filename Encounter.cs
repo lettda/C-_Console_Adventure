@@ -6,6 +6,7 @@ namespace _350_final_project
     public class Encounter
     {
         static int encounterCounter = Randomize.NumberGenerator(1, 10) % 2;
+        public bool gameOver;
 
         //public static void GenerateEncounter (string playerClass,Player classChoosen) //determine if the player will or will not find a monster upon choosing a direction
         //{
@@ -15,7 +16,7 @@ namespace _350_final_project
         //    }
         //}
 
-        public static void StartBattle(string playerClass, Player choosenClass) //
+        public void StartBattle(string playerClass, Player choosenClass) //
         {
             Monster currentMonster = Randomize.RandomizeMonster(); //current monster the player has encountered
             string action;
@@ -44,41 +45,63 @@ namespace _350_final_project
 
         }
 
-        static void EncounterBattle(Monster monster, Player choosenClass, string action)    //method to run when an encounter starts
+        public void EncounterBattle(Monster monster, Player choosenClass, string action)    //method to run when an encounter starts
         {
-            while (monster.CurrentHp > monster.MonsterDamageTaken(choosenClass.playerDamage) || 
-                   choosenClass.CurrentPlayerHealth > choosenClass.DamageTaken(monster.MaxDamage)) //while the monster's health or players health is greater than the amount of damage taken continue the battle
+            while (monster.CurrentHp > 0 && 
+                   choosenClass.CurrentPlayerHealth > 0) //while the monster's health or players health is greater than the amount of damage taken continue the battle
             {
-                int monsterHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;   //determine if the monster's attack will hit or miss
-
-                WriteLine("{0}{1}", monster.Name, monster.Attack);
-
-                if (monsterHitMissCounter != 0)
+                if (monster.CurrentHp > 0 && choosenClass.currentPlayerHealth > 0)
                 {
-                    WriteLine("{0}'s attack hits, you take {1} damage", monster.Name, monster.MaxDamage);   //display monster's name and damage taken
+                    int monsterHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;   //determine if the monster's attack will hit or miss
 
-                    WriteLine("Your health is now {0}", choosenClass.DamageTaken(monster.MaxDamage));   //display monster's remaiing health
-                    ReadKey();
-                }
+                    WriteLine("{0}{1}", monster.Name, monster.Attack);
+                    Thread.Sleep(1000);
 
-                else
-                {
-                    Thread.Sleep(2000); //Pause for two seconds
-                    WriteLine("\n {0} missed!", monster.Name);
-                    ReadKey();
-                }
-                int playerHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;    //determine if the player's attack will hit or miss
-                if (playerHitMissCounter != 0)
-                {
-                    WriteLine("Your attacked missed!");
-                    ReadKey();
-                } else
-                    
-                {
-                    WriteLine("You {0}, {1} takes {2} damage", action, monster.Name, choosenClass.playerDamage);    //display the player's class' choosen prep action and amount of damage taken
+                    if (monsterHitMissCounter != 0)
+                    {
 
-                    WriteLine("{0}'s current health is {1}", monster.Name, monster.MonsterDamageTaken(choosenClass.playerDamage)); //display player's remaining health
-                    ReadKey();
+                        WriteLine("{0}'s attack hits, you take {1} damage", monster.Name, monster.MaxDamage);   //display monster's name and damage taken
+                        choosenClass.currentPlayerHealth = choosenClass.currentPlayerHealth - monster.MaxDamage;
+
+                        if (choosenClass.currentPlayerHealth <= 0)
+                        {
+                            gameOver = true;
+                            return;
+                        } else
+                        {
+                            WriteLine("Your health is now {0}", choosenClass.currentPlayerHealth);   //display monster's remaiing health
+                            ReadKey();
+                        }
+                    }
+                    else
+                    {
+                        Thread.Sleep(2000); //Pause for two seconds
+                        WriteLine("\n {0} missed!", monster.Name);
+                        ReadKey();
+                    }
+                    int playerHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;    //determine if the player's attack will hit or miss
+                    if (playerHitMissCounter != 0)
+                    {
+                        Thread.Sleep(2000);
+                        WriteLine("Your attacked missed!");
+                        ReadKey();
+                    }
+                    else
+                    {
+                        Thread.Sleep(1000);
+                        WriteLine("You {0}, {1} takes {2} damage", action, monster.Name, choosenClass.playerDamage);    //display the player's class' choosen prep action and amount of damage taken
+                        monster.CurrentHp = monster.CurrentHp - choosenClass.playerDamage;
+
+                        if (monster.CurrentHp <= 0)
+                        {
+                            WriteLine("{0} has been slain! \n Player earns {1} exp", monster.Name, monster.ExpReward);
+                        } else
+                        {
+                            WriteLine("{0}'s current health is {1}", monster.Name, monster.CurrentHp); //display player's remaining health
+                            ReadKey();
+                        }
+
+                    }
                 }
             }
         }

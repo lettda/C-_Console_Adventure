@@ -26,11 +26,11 @@ namespace _350_final_project
             return "Monster Health: " + CurrentHp;
 		}
 
-		public int MonsterDamageTaken(int playerDMG)    //calculate the damage the monster takes and overwrite its current HP value
-        {
-            CurrentHp = CurrentHp - playerDMG;
-            return CurrentHp;
-        }
+		//public int MonsterDamageTaken(int playerDMG)    //calculate the damage the monster takes and overwrite its current HP value
+        //{
+        //    CurrentHp = CurrentHp - playerDMG;
+        //    return CurrentHp;
+        //}
 
     }
 }

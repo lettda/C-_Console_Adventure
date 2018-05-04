@@ -5,6 +5,8 @@ namespace _350_final_project
     public class Story
     {
         public Player choosenClass; //player's choosen class
+        Encounter newEncounter = new Encounter();
+
 
         public Player ChooseClass(string choice)    //to run and allow player to pick from 3 different classes by intantiate an instance depending on their answer
         {
@@ -57,7 +59,6 @@ namespace _350_final_project
         public void Beginning(string playerName, string playerClass)
 
         {
-
             WriteLine("Valiant {0}, It is time to begin your journey", playerName);
             WriteLine("We begin in the hall of heroes, the queen has tasked you with destorying the dragon \n" +
                       " that resides at the tower on the edge of the kingdom. To bein your journey pick a direction in which to go. \n" +
@@ -70,9 +71,22 @@ namespace _350_final_project
                       "North, East, or West?:");
             directionDecision = ReadLine();
 
-            WriteLine("Setting your sights to the {0} you soldier on. As you take a look at your surrondings and you suddenly " +
+            WriteLine("Setting your sights to the {0} you soldier on. As you take a look at your surrondings you suddenly " +
                       "notice your not alone", directionDecision);
-            Encounter.StartBattle(playerClass, choosenClass);
+            newEncounter.StartBattle(playerClass, choosenClass);
+            switch (newEncounter.gameOver)
+            {
+                case true:
+                    WriteLine("You have been defeated......GAME OVER");
+                    break;
+                case false:
+                    WriteLine("You have slain the beast! Now you must continue your jounrey to the {0}. ", directionDecision);
+                    break;
+                default:
+                    break;
+            }
+            WriteLine("Moving again toward the {0} you arrive at {1}", directionDecision, Randomize.RandomizeLocation().Name);
+
         }
     }
 }

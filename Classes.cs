@@ -41,10 +41,10 @@ namespace _350_final_project
         //{
         //    return "Health: " + currentPlayerHealth;
         //}
-        public int DamageTaken(int monsterDMG)
-        {
-            CurrentPlayerHealth = CurrentPlayerHealth - monsterDMG; //calculate the damage the player takes and overwrite their current HP value
-            return CurrentPlayerHealth;
-        }
+        //public int DamageTaken(int monsterDMG)
+        //{
+        //    CurrentPlayerHealth = CurrentPlayerHealth - monsterDMG; //calculate the damage the player takes and overwrite their current HP value
+        //    return CurrentPlayerHealth;
+        //}
     }
 }
