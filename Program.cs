@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using static System.Console;
 
 namespace _350_final_project
@@ -21,9 +22,11 @@ namespace _350_final_project
             } while (string.IsNullOrEmpty(playerName)); //while playerName contains no value
 
             WriteLine("Welcome {0}, to your great Adventure", playerName);
+            Thread.Sleep(1000);
 
             WriteLine("Choose your class by entering its name: \n You may choose the noble Warrior, the dastardly Theif, or the honorable Gunner");
             playerClass = ReadLine(); //Have player input their class and save for further use
+            Thread.Sleep(1000);
 
             newStory.ChooseClass(playerClass); //Belongs to the story class, must have an instance instatiated due to main method being static
 
