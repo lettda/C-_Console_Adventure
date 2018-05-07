@@ -12,7 +12,7 @@ namespace _350_final_project
         {
             switch (choice.ToLower())
             {
-                case "warrior":
+                case "warrior": //blue print for the warrior class
                     choosenClass = new Player()
                     {
                         maxPlayerHealth = 150,
@@ -25,7 +25,7 @@ namespace _350_final_project
                     };
                     WriteLine("You have choosen the path of the Warrior. Live by the sword. Die by the sword! \n");
                     return choosenClass;
-                case "theif":
+                case "theif":   //blueprint for Theif class
                     choosenClass = new Player()
                     {
                         maxPlayerHealth = 85,
@@ -38,7 +38,7 @@ namespace _350_final_project
                     };
                     WriteLine("You have choosen to lurk in the shadows as a theif \n");
                     return choosenClass;
-                case "gunner":
+                case "gunner":  //blueprint for the gunner class
                     choosenClass = new Player()
                     {
                         maxPlayerHealth = 70,
@@ -56,14 +56,14 @@ namespace _350_final_project
             }
         }
 
-        public void Beginning(string playerName, string playerClass)
+        public void Beginning(string playerName, string playerClass)    //Begin the story
 
         {
             WriteLine("Valiant {0}, It is time to begin your journey", playerName);
-            WriteLine("We begin in the hall of heroes, the queen has tasked you with destorying the dragon \n" +
-                      " that resides at the tower on the edge of the kingdom. To bein your journey pick a direction in which to go. \n" +
-                      "Will you venture north, east or west?");
-            string directionDecision = ReadLine();
+            WriteLine("We begin in the hall of heroes, the queen has tasked you with destorying the dead god \n" +
+                      " that resides at the tower on the edge of the kingdom. To begin your journey pick a direction in which to go." +
+                      "Will you venture north, east or west? \n");
+            string directionDecision = ReadLine();  //player's diretion decision
 
             WriteLine("You head {0}, steadily maing your way toward {1}", directionDecision, Randomize.RandomizeLocation().Name);   //pick a random location
             WriteLine("After several long miles you come across a fork in the road with no signs pointing you to your destination. \n " +
@@ -72,9 +72,10 @@ namespace _350_final_project
             directionDecision = ReadLine();
 
             WriteLine("Setting your sights to the {0} you soldier on. As you take a look at your surrondings you suddenly " +
-                      "notice your not alone", directionDecision);
-            newEncounter.StartBattle(playerClass, choosenClass);
-            switch (newEncounter.gameOver)
+                      "notice your not alone \n", directionDecision);
+            newEncounter.GenerateEncounter(playerClass, choosenClass);
+
+            switch (Encounter.gameOver) //Game over logics
             {
                 case true:
                     WriteLine("You have been defeated......GAME OVER");
@@ -103,12 +104,12 @@ namespace _350_final_project
             }
 
         }
-        private void FollowChoosen(string playerName, string playerClass)
+        private void FollowChoosen(string playerName, string playerClass) //Story continuatin based on follow(F)
         {
             WriteLine("You choose to listen to the voice. It speaks of an ancient magic that will help you defeat the dead god");
             
         }
-        private void ContinueChoosen(string playerName, string playerClass)
+        private void ContinueChoosen(string playerName, string playerClass) //Story continuation absed on continue(C)
         {
             WriteLine("Ignoring the voice you continue on. A {0} has to time for fairytales.", playerClass);
         }

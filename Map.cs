@@ -41,12 +41,15 @@ namespace _350_final_project
             Monster metapod = new Monster("wild Metapod", "uses harden!", 50,50,0,1);
             Monster boss = new Monster("The Dead God", "lashes out with his witch stone", 200, 200, 30, 50);
 
-            Monsters.Add(goblin);
+            Monsters.Add(goblin); //Add newly created monsters to list of possible monsters
             Monsters.Add(fireElemental);
             Monsters.Add(giantCrow);
             Monsters.Add(grunt);
             Monsters.Add(pokemonMaster);
             Monsters.Add(dragon);
+            Monsters.Add(jester);
+            Monsters.Add(pikachu);
+            Monsters.Add(metapod);
 
         }
 
@@ -67,13 +70,17 @@ namespace _350_final_project
             Location oakvale = new Location("Oakvale","100ft: Town of Oakvale \n Population: 1");
 
 
-            Locations.Add(forest);
+            Locations.Add(forest); //Add newly created locations to list of possible locations
             Locations.Add(cavern);
             Locations.Add(lake);
             Locations.Add(tower);
             Locations.Add(mountain);
             Locations.Add(dungeon);
             Locations.Add(palletTown);
+            Locations.Add(sevendore);
+            Locations.Add(penumbra);
+            Locations.Add(brooklyn);
+            Locations.Add(witheredVale);
         }
     }
 }

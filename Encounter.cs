@@ -6,37 +6,37 @@ namespace _350_final_project
     public class Encounter
     {
         static int encounterCounter = Randomize.NumberGenerator(1, 10) % 2;
-        public bool gameOver;
+        public static bool gameOver;
 
-        //public static void GenerateEncounter (string playerClass,Player classChoosen) //determine if the player will or will not find a monster upon choosing a direction
-        //{
-        //    if (encounterCounter == 0)
-        //    {
-        //        StartBattle(playerClass, classChoosen);
-        //    }
-        //}
+        public void GenerateEncounter (string playerClass,Player classChoosen) //randomize monster encounters
+        {
+            if (encounterCounter == 0)
+            {
+                StartBattle(playerClass, classChoosen);
+            }
+        }
 
-        public void StartBattle(string playerClass, Player choosenClass) //
+        internal static void StartBattle(string playerClass, Player choosenClass) //
         {
             Monster currentMonster = Randomize.RandomizeMonster(); //current monster the player has encountered
             string action;
-            WriteLine("AMBUSH! A {0} appears to challenge you adventurer!", currentMonster.Name);
+            WriteLine("AMBUSH! A {0} appears to challenge you adventurer! \n", currentMonster.Name);
 
-            switch (playerClass)
+            switch (playerClass) //Determine initial combat action taken depending on player's choosen class
             {
                 case "warrior":
-                    WriteLine("You quickly draw your greatsword and stand at the ready");
-                    action = "You drag your sword in a great arc!";
+                    WriteLine("You quickly draw your greatsword and stand at the ready \n");
+                    action = "You drag your sword in a great arc! \n";
                     EncounterBattle(currentMonster, choosenClass, action);
                     break;
                 case "theif":
-                    WriteLine("You swiftly load your gun, eyes glaring over the barrell");
-                    action = "You fire your weapon with extreme accuracy!";
+                    WriteLine("You swiftly load your gun, eyes glaring over the barrell \n");
+                    action = "You fire your weapon with extreme accuracy! \n";
                     EncounterBattle(currentMonster, choosenClass, action);
                     break;
                 case "gunner":
-                    WriteLine("You pull both daggers from your cloak and being to toss them from palm to palm");
-                    action = "You dash forward, daggers a silver blur!";
+                    WriteLine("You pull both daggers from your cloak and being to toss them from palm to palm \n");
+                    action = "You dash forward, daggers a silver blur! \n";
                     EncounterBattle(currentMonster, choosenClass, action);
                     break;
                 default:
@@ -45,12 +45,12 @@ namespace _350_final_project
 
         }
 
-        public void EncounterBattle(Monster monster, Player choosenClass, string action)    //method to run when an encounter starts
+        public static void EncounterBattle(Monster monster, Player choosenClass, string action)    //method to run when an encounter starts
         {
             while (monster.CurrentHp > 0 && 
                    choosenClass.CurrentPlayerHealth > 0) //while the monster's health or players health is greater than the amount of damage taken continue the battle
             {
-                if (monster.CurrentHp > 0 && choosenClass.currentPlayerHealth > 0)
+                if (monster.CurrentHp > 0 && choosenClass.currentPlayerHealth > 0)  //if player and monster both have more than 0 HP continue the battle
                 {
                     int monsterHitMissCounter = Randomize.NumberGenerator(1, 10) % 2;   //determine if the monster's attack will hit or miss
 
@@ -63,7 +63,7 @@ namespace _350_final_project
                         WriteLine("{0}'s attack hits, you take {1} damage", monster.Name, monster.MaxDamage);   //display monster's name and damage taken
                         choosenClass.currentPlayerHealth = choosenClass.currentPlayerHealth - monster.MaxDamage;
 
-                        if (choosenClass.currentPlayerHealth <= 0)
+                        if (choosenClass.currentPlayerHealth <= 0)  //if player has 0 HP game over
                         {
                             gameOver = true;
                             return;
@@ -75,7 +75,7 @@ namespace _350_final_project
                     }
                     else
                     {
-                        Thread.Sleep(2000); //Pause for two seconds
+                        Thread.Sleep(1000); //Pause for one second
                         WriteLine("\n {0} missed!", monster.Name);
                         ReadKey();
                     }
@@ -94,7 +94,7 @@ namespace _350_final_project
 
                         if (monster.CurrentHp <= 0)
                         {
-                            WriteLine("{0} has been slain! \n Player earns {1} exp", monster.Name, monster.ExpReward);
+                            WriteLine("{0} has been slain! \n Player earns {1} exp", monster.Name, monster.ExpReward);  //victory condition and message
                         } else
                         {
                             WriteLine("{0}'s current health is {1}", monster.Name, monster.CurrentHp); //display player's remaining health
