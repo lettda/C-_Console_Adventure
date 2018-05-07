@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using static System.Console;
 namespace _350_final_project
 {
@@ -6,6 +7,7 @@ namespace _350_final_project
     {
         public Player choosenClass; //player's choosen class
         //Encounter newEncounter = new Encounter();
+        int riddleCounter;
 
 
         public Player ChooseClass(string choice)    //to run and allow player to pick from 3 different classes by intantiate an instance depending on their answer
@@ -108,15 +110,89 @@ namespace _350_final_project
         }
         private void FollowChoosen(string playerName, string playerClass) //Story continuatin based on follow(F)
         {
-            WriteLine("You choose to listen to the voice. It speaks of an ancient magic that will help you defeat the dead god");
             
+            WriteLine("You choose to listen to the voice. It speaks of an ancient magic that will help you defeat the dead god");
+            Thread.Sleep(1000);
+            WriteLine("{0}, for the prize that you seek /n" +
+                      "Answers three are what I keep /n" +
+                      "Three for three and be on your way \n" +
+                      "Two for two a small price to pay \n" +
+                     "One an only you, with me you stay");
+            Thread.Sleep(1000);
+            WriteLine("The first may be circle of gold or words unspoken and if left unkept is surely broken: \n");
+            string riddleOneAnswer = ReadLine().ToLower();
+
+            switch (riddleOneAnswer)
+            {
+                case "promise":
+                    WriteLine();
+                    riddleCounter += 1;
+                    break;
+                default:
+                    WriteLine("Incorrect");
+                    break;
+            }
+            Thread.Sleep(1000);
+            WriteLine("The second lives from falls on high, but a watery grave ensures its demise: \n");
+            string riddleTwoAnswer = ReadLine().ToLower();
+            switch (riddleTwoAnswer)
+            {
+                case "paper":
+                    WriteLine();
+                    riddleCounter += 1;
+                    break;
+                default:
+                    WriteLine("Incorrect");
+                    break;
+            }
+            Thread.Sleep(1000);
+            WriteLine("The third a treasure which begins yet has no end, to those that live it is no friend: \n");
+            string riddleThreeAnswer = ReadLine().ToLower();
+            switch (riddleThreeAnswer)
+            {
+                case "time":
+                    WriteLine();
+                    riddleCounter += 1;
+                    break;
+                default:
+                    WriteLine("Incorrect");
+                    break;
+            }
+            if (riddleCounter == 3)
+            {
+                WriteLine("You have answered my riddles three. Ask the truth and I shall answer thee \n" +
+                          "Be it grand or be it small, no question be to short or tall");
+            } else if (riddleCounter == 2)
+            {
+                WriteLine("Two you passed yet one was failed, pay the cost to continue your tale");
+                Encounter.GenerateEncounter(playerClass, choosenClass);
+            } else 
+            {
+                WriteLine("One by one, you've failed this test. Now your soul I lay to rest");
+                Encounter.gameOver = true;
+                WriteLine("You have been defeated......GAME OVER");
+            }
+
         }
+
         private void ContinueChoosen(string playerName, string playerClass) //Story continuation absed on continue(C)
         {
             WriteLine("Ignoring the voice you continue on. A {0} has to time for fairytales.", playerClass);
             WriteLine("As you walk through the streets of the town you notice a dark figure waiting in the wings \n" +
                       "You've been followed, a spy of he dead god?");
             Encounter.GenerateEncounter(playerName, choosenClass);
+
+            switch (Encounter.gameOver) //Game over logics
+            {
+                case true:
+                    WriteLine("You have been defeated......GAME OVER");
+                    break;
+                case false:
+                    WriteLine("You have slain the villian!");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
