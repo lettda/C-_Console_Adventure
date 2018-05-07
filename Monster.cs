@@ -21,10 +21,10 @@ namespace _350_final_project
         public int MaxDamage { get; set; }
         public int ExpReward { get; set; }
 
-		public override string ToString()
-		{
-            return "Monster Health: " + CurrentHp;
-		}
+		//public override string ToString()
+		//{
+  //          return "Monster Health: " + CurrentHp;
+		//}
 
 		//public int MonsterDamageTaken(int playerDMG)    //calculate the damage the monster takes and overwrite its current HP value
         //{

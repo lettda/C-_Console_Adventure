@@ -35,7 +35,11 @@ namespace _350_final_project
             Monster giantCrow = new Monster("Giant Crow", "wing attack", 8, 8, 3, 5);
             Monster grunt = new Monster("Grunt","fires its pistol", 6, 6, 1, 7);
             Monster pokemonMaster = new Monster("Pokemon Master","throws pokeball", 15, 15, 9, 25);
+            Monster jester = new Monster("Jester", "tells a bad joke", 11, 11, 1, 100);
             Monster dragon = new Monster("Dragon","conjures a tornado of flames", 50, 50, 25, 100);
+            Monster pikachu = new Monster("wild Pikachu", "uses thunderbolt!", 10, 10, 2, 3);
+            Monster metapod = new Monster("wild Metapod", "uses harden!", 50,50,0,1);
+            Monster boss = new Monster("The Dead God", "lashes out with his witch stone", 200, 200, 30, 50);
 
             Monsters.Add(goblin);
             Monsters.Add(fireElemental);
@@ -55,6 +59,13 @@ namespace _350_final_project
             Location mountain = new Location("Mountain", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
             Location dungeon = new Location("Dungeon", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
             Location palletTown = new Location("Pallet Town", "You wander into the Pyre Stone Caverns, a sign says 'Travelers Beware'");
+            Location sevendore = new Location("Sevendore", "You come to the snow white village of Sevendore, ruled by the powerful mage lord");
+            Location penumbra = new Location("The Penumbra", "Darkness surrounds you, the influence of the dead god is everywhere");
+            Location brooklyn = new Location("Brooklyn", "You see a bodega on the corner, you can't resist its call");
+            Location witheredVale = new Location("The Whithered Vale", "Before you lies the Whithered Vale, \n " +
+                                                 "best not terry too long or you to will become part of the forest");
+            Location oakvale = new Location("Oakvale","100ft: Town of Oakvale \n Population: 1");
+
 
             Locations.Add(forest);
             Locations.Add(cavern);

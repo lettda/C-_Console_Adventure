@@ -86,7 +86,31 @@ namespace _350_final_project
                     break;
             }
             WriteLine("Moving again toward the {0} you arrive at {1}", directionDecision, Randomize.RandomizeLocation().Name);
+            WriteLine("As you wander around you begin to hear a voice calling to you, it has the asnwers you seek. \n " +
+                      "Tell me hero/heroine will you follow(f) the voice or continue(c) on your own?");
+            string followOrContinue = ReadLine();
 
+            switch (followOrContinue.ToLower())
+            {
+                case "f":
+                    FollowChoosen(playerName, playerClass);
+                    break;
+                case "c":
+                    ContinueChoosen(playerName, playerClass);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        private void FollowChoosen(string playerName, string playerClass)
+        {
+            WriteLine("You choose to listen to the voice. It speaks of an ancient magic that will help you defeat the dead god");
+            
+        }
+        private void ContinueChoosen(string playerName, string playerClass)
+        {
+            WriteLine("Ignoring the voice you continue on. A {0} has to time for fairytales.", playerClass);
         }
     }
 }

@@ -29,12 +29,12 @@ namespace _350_final_project
         }
 
 
-        private int MaxPlayerHealth { get => maxPlayerHealth;}
+        public int MaxPlayerHealth { get => maxPlayerHealth;}
         public int CurrentPlayerHealth { get => currentPlayerHealth; set => currentPlayerHealth = value;}
-        private int PlayerDamage { get => playerDamage;}
-        private int PlayerDef { get => playerDef; }
-        private int PlayerAgility { get => playerAgility; }
-        private int PlayerStrength { get => playerStrength;}
+        public int PlayerDamage { get => playerDamage;}
+        public int PlayerDef { get => playerDef; }
+        public int PlayerAgility { get => playerAgility; }
+        public int PlayerStrength { get => playerStrength;}
         public int PlayerExperience { get => playerExperience;}
 
         //public override string ToString()
