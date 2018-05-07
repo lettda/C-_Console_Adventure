@@ -8,7 +8,7 @@ namespace _350_final_project
         static int encounterCounter = Randomize.NumberGenerator(1, 10) % 2;
         public static bool gameOver;
 
-        public void GenerateEncounter (string playerClass,Player classChoosen) //randomize monster encounters
+        public static void GenerateEncounter (string playerClass,Player classChoosen) //randomize monster encounters
         {
             if (encounterCounter == 0)
             {

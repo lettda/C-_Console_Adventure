@@ -5,7 +5,7 @@ namespace _350_final_project
     public class Story
     {
         public Player choosenClass; //player's choosen class
-        Encounter newEncounter = new Encounter();
+        //Encounter newEncounter = new Encounter();
 
 
         public Player ChooseClass(string choice)    //to run and allow player to pick from 3 different classes by intantiate an instance depending on their answer
@@ -60,9 +60,11 @@ namespace _350_final_project
 
         {
             WriteLine("Valiant {0}, It is time to begin your journey", playerName);
-            WriteLine("We begin in the hall of heroes, the queen has tasked you with destorying the dead god \n" +
-                      " that resides at the tower on the edge of the kingdom. To begin your journey pick a direction in which to go." +
-                      "Will you venture north, east or west? \n");
+            WriteLine("We begin in the hall of heroes: \n" +
+                      " The queen has tasked you with destorying the dead god \n" +
+                      " that resides at the tower on the edge of the kingdom \n." +
+                      " To begin your journey pick a direction in which to go. \n" +
+                      "Will you venture north, east or west? ");
             string directionDecision = ReadLine();  //player's diretion decision
 
             WriteLine("You head {0}, steadily maing your way toward {1}", directionDecision, Randomize.RandomizeLocation().Name);   //pick a random location
@@ -73,7 +75,7 @@ namespace _350_final_project
 
             WriteLine("Setting your sights to the {0} you soldier on. As you take a look at your surrondings you suddenly " +
                       "notice your not alone \n", directionDecision);
-            newEncounter.GenerateEncounter(playerClass, choosenClass);
+            Encounter.GenerateEncounter(playerClass, choosenClass);
 
             switch (Encounter.gameOver) //Game over logics
             {
@@ -112,6 +114,9 @@ namespace _350_final_project
         private void ContinueChoosen(string playerName, string playerClass) //Story continuation absed on continue(C)
         {
             WriteLine("Ignoring the voice you continue on. A {0} has to time for fairytales.", playerClass);
+            WriteLine("As you walk through the streets of the town you notice a dark figure waiting in the wings \n" +
+                      "You've been followed, a spy of he dead god?");
+            Encounter.GenerateEncounter(playerName, choosenClass);
         }
     }
 }
